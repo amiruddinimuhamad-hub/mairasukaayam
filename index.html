@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maira Suka Ayam | Ayam Goreng Paling Ranggup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-red: #E63946;
+            --crispy-yellow: #FFCA28;
+            --dark-text: #1D1D1D;
+            --bg-color: #FFFAFC;
+            --card-bg: #FFFFFF;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --shadow-soft: 0 10px 40px rgba(230, 57, 70, 0.08);
+            --shadow-hover: 0 15px 50px rgba(230, 57, 70, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigasi */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary-red);
+            letter-spacing: -1px;
+        }
+
+        .cart-btn {
+            background: var(--crispy-yellow);
+            border: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .cart-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 5% 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            background: rgba(230, 57, 70, 0.1);
+            color: var(--primary-red);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        h1 span {
+            color: var(--primary-red);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--primary-red);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(230, 57, 70, 0.4);
+        }
+
+        /* Social Proof */
+        .social-proof {
+            text-align: center;
+            padding: 40px 5%;
+            background: var(--crispy-yellow);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Features - Bento Grid (Trend 2026) */
+        .features {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 80px 5%;
+            background: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 50px;
+        }
+
+        .menu-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background: var(--bg-color);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .menu-item:hover {
+            border-color: var(--crispy-yellow);
+            background: white;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .img-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #FFE0E0;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .menu-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-weight: 800;
+            color: var(--primary-red);
+            font-size: 1.2rem;
+        }
+
+        .add-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--dark-text);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+
+        .add-btn:hover {
+            background: var(--primary-red);
+        }
+
+        /* Sticky Mobile CTA (Crucial for 2026 Mobile Conversion) */
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            left: 5%;
+            width: 90%;
+            background: var(--primary-red);
+            color: white;
+            text-align: center;
+            padding: 18px;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
+            display: none;
+            z-index: 99;
+            text-decoration: none;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 5%;
+            background: var(--bg-color);
+            text-align: center;
+        }
+
+        .review-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-text);
+            color: white;
+            text-align: center;
+            padding: 40px 5%;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(230, 57, 70, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding-top: 120px; }
+            .sticky-cta { display: block; }
+            .btn-primary { display: none; } /* Sorok butang utama sebab guna sticky CTA di mobile */
+            footer { padding-bottom: 100px; } /* Ruang untuk sticky CTA */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Maira Suka Ayam.</div>
+        <button class="cart-btn" onclick="openCart()">
+            🛒 <span id="cart-count">0</span> Item
+        </button>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="badge">🔥 Resipi Viral 2026</div>
+            <h1>Ayam Goreng <span>Paling Ranggup</span> Di Bandar!</h1>
+            <p>Sekali gigit, dengar bunyi kruk-krak. Diperap 24 jam dengan rempah rahsia, digoreng panas-panas. Memang tak cukup seketul.</p>
+            <div class="cta-group">
+                <a href="#menu" class="btn-primary">Pesan Sekarang - Diskaun 10% Hari Ini</a>
+            </div>
+        </section>
+
+        <div class="social-proof">
+            ⭐ Dipercayai & digemari oleh lebih 15,000 rakyat Malaysia setiap bulan!
+        </div>
+
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🍗</div>
+                <h3>Ranggup Luar Biasa</h3>
+                <p>Teknik salutan berganda kami menjamin keranggupan tahan lebih lama walaupun dihantar ke rumah.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌶️</div>
+                <h3>Perapan 24 Jam</h3>
+                <p>Bukan sekadar pedas di luar. Rempah rahsia kami meresap jauh ke tulang.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛵</div>
+                <h3>Hantar Panas-Panas</h3>
+                <p>Kami goreng hanya bila order masuk. Jaminan sampai dalam keadaan berasap dan segar!</p>
+            </div>
+        </section>
+
+        <section id="menu" class="menu">
+            <h2 class="section-title">Pilihan Paling Laris</h2>
+            <div class="menu-grid">
+                
+                <div class="menu-item">
+                    <div class="img-placeholder">🍗🍟</div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>Set Bujang (2 Ketul)</h3>
+                            <span class="price">RM 14.90</span>
+                        </div>
+                        <p>2 Ketul Ayam + Kentang Putar + Air.</p>
+                        <button class="add-btn" onclick="addToCart()">+ Tambah ke Troli</button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="img-placeholder">🔥🌶️</div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>Sayap Berapi (6 Keping)</h3>
+                            <span class="price">RM 18.50</span>
+                        </div>
+                        <p>Disalut sos pedas manis Korea resipi khas Maira.</p>
+                        <button class="add-btn" onclick="addToCart()">+ Tambah ke Troli</button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="img-placeholder">👨‍👩‍👧‍👦🍗</div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>Set Family (9 Ketul)</h3>
+                            <span class="price">RM 49.90</span>
+                        </div>
+                        <p>9 Ketul Ayam + 2 Side Dish + 1 Botol Air Besar. (Jimat RM10!)</p>
+                        <button class="add-btn" onclick="addToCart()">+ Tambah ke Troli</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2 class="section-title">Apa Kata Mereka?</h2>
+            <div class="review-box">
+                <p>"Sumpah sedap gila. Ayam dia juicy kat dalam, ranggup kat luar. Anak-anak saya asyik repeat order Set Family je tiap hujung minggu. Terbaik Maira Suka Ayam!"</p>
+                <br>
+                <strong>- Puan Aisyah, Pelanggan Setia</strong>
+            </div>
+        </section>
+    </main>
+
+    <a href="#menu" class="sticky-cta">Lapar? Pesan Sekarang 🛵</a>
+
+    <footer>
+        <p>&copy; 2026 Maira Suka Ayam. Semua Hak Cipta Terpelihara.</p>
+        <p>Hubungi Kami: 012-3456789 | order@mairasukaayam.my</p>
+    </footer>
+
+    <script>
+        let cartTotal = 0;
+        
+        function addToCart() {
+            cartTotal++;
+            document.getElementById('cart-count').innerText = cartTotal;
+            
+            // Animasi butang cart di atas bila ada item ditambah
+            const cartBtn = document.querySelector('.cart-btn');
+            cartBtn.style.transform = 'scale(1.2)';
+            cartBtn.style.backgroundColor = '#E63946';
+            cartBtn.style.color = '#FFF';
+            
+            setTimeout(() => {
+                cartBtn.style.transform = 'scale(1)';
+                cartBtn.style.backgroundColor = 'var(--crispy-yellow)';
+                cartBtn.style.color = 'var(--dark-text)';
+            }, 300);
+
+            alert("Wah! Ayam sedap dah masuk dalam troli anda.");
+        }
+
+        function openCart() {
+            if(cartTotal === 0) {
+                alert("Troli anda masih kosong. Jom pilih ayam goreng!");
+                window.location.hash = "#menu";
+            } else {
+                alert("Anda ada " + cartTotal + " item. Teruskan ke pembayaran?");
+            }
+        }
+    </script>
+</body>
+</html>
